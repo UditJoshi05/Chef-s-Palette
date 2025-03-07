@@ -15,24 +15,11 @@ const LoginPage = () => {
             // Here you would typically make an API call to your backend
             // For now, we'll just simulate a login
             if (email && password) {
-                // Set login state
                 localStorage.setItem('isLoggedIn', 'true');
                 localStorage.setItem('userEmail', email);
-                
-                // Force a window storage event for our listener
-                window.dispatchEvent(new Event('storage'));
-                
-                // Log the login action
-                console.log('Login successful, state set to:', {
-                    isLoggedIn: localStorage.getItem('isLoggedIn'),
-                    userEmail: localStorage.getItem('userEmail')
-                });
-
-                // Navigate to home page
                 navigate('/');
             }
         } catch (err) {
-            console.error('Login error:', err);
             setError('Failed to login. Please try again.');
         }
     };
